@@ -43,8 +43,8 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
+                        <li class="active"><a href="<c:url value="/"/>">Home</a></li>
+                        <li><a href="<c:url value="/productList"/>">Products</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
@@ -78,13 +78,21 @@
             <thead>
             <tr class="bg-success">
                 <th>Photo Thumb</th>
-                <th>Product Name</th>
+                <th>Name</th>
                 <th>Category</th>
                 <th>Condition</th>
                 <th>Price</th>
             </tr>
             </thead>
-                <td><img src="#" alt="image" /></td>
+            <c:forEach items="${products}" var="product">
+                <tr>
+                    <td><img src="#" alt="image" /></td>
+                    <td>${product.productName}</td>
+                    <td>${product.productCategory}</td>
+                    <td>${product.productCondition}</td>
+                    <td>${product.productPrice}</td>
+                </tr>
+            </c:forEach>
         </table>
 
         <!-- FOOTER -->
